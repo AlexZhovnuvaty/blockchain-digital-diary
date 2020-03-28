@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+message DataPayload {
+
+    enum PayloadType {
+        TYPE_UNSET = 0;
+        PAYLOAD_CREATE_CONSUMER = 1;
+        PAYLOAD_CREATE_ACADEMIC = 2;
+        PAYLOAD_ADD_DATA = 3;
+    }
+
+    PayloadType payload_type = 1;
+
+    Consumer create_consumer = 2;
+    Academic create_academic = 3;
+    ConsumerData add_data = 4;
+}
+
+message Consumer {
+    string public_key = 1;
+    string name = 2;
+}
+
+message Academic {
+    string public_key = 1;
+    string name = 2;
+}
+
+message ConsumerData {
+    string id=1;
+    string client_pkey=2;
+    string field1=3;
+    string field2=4;
+    string field3=5;
+    string event_time=6;
+}
+
+message ConsumerDataExt {
+    string id=1;
+    string client_pkey=2;
+    string field1=3;
+    string field2=4;
+    string field3=5;
+    string event_time=6;
+    string name=7;
+}
